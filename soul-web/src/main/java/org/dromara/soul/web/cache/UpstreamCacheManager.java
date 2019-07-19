@@ -24,6 +24,7 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.dromara.soul.common.dto.convert.DivideUpstream;
 import org.dromara.soul.common.dto.zk.SelectorZkDTO;
 import org.dromara.soul.common.utils.GsonUtils;
+import org.dromara.soul.common.utils.LogUtils;
 import org.dromara.soul.common.utils.UrlUtils;
 import org.dromara.soul.web.concurrent.SoulThreadFactory;
 import org.slf4j.Logger;
@@ -147,6 +148,8 @@ public class UpstreamCacheManager {
             final boolean pass = UrlUtils.checkUrl(divideUpstream.getUpstreamUrl());
             if (pass) {
                 resultList.add(divideUpstream);
+            }else {
+                LogUtils.error(LOGGER, "check the url is fail:{}", divideUpstream::getUpstreamUrl);
             }
         }
         return resultList;

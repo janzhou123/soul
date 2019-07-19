@@ -113,6 +113,7 @@ public class DubboCommand extends HystrixObservableCommand<Void> {
     private Mono<Void> doFallback() {
         if (isFailedExecution()) {
             LogUtils.error(LOGGER, "dubbo rpc have error:{}", () -> getExecutionException().getMessage());
+            LogUtils.error(LOGGER, "dubbo rpc have error:{}", () -> getExecutionException().getCause().toString());
         }
         exchange.getResponse().setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
         final SoulResult error = SoulResult.error(Constants.DUBBO_ERROR_RESULT);

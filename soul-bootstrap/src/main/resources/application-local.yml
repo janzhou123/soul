@@ -26,7 +26,7 @@ spring:
         read-timeout: 30
         write-timeout: 10
    zookeeper:
-        url : localhost:2181
+        url : 10.36.1.54:2181
         sessionTimeout: 5000
         connectionTimeout : 2000
 soul:

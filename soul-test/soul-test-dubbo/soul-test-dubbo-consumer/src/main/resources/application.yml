@@ -1,0 +1,18 @@
+server:
+  port: 9696
+spring:
+  application:
+    name: soul-test-dubbo-consumer
+  dubbo:
+    application:            #应用配置，用于配置当前应用信息，不管该应用是提供者还是消费者。
+      name: kltb-dubbo-client
+    registry:                 #注册中心配置，用于配置连接注册中心相关信息。
+      #        address: redis://10.36.1.54:6479?max.total=1000&max.wait=1000
+      address: zookeeper://10.36.1.54:2181
+    protocol:     #协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受（订阅）。
+      name: dubbo
+      port: 20889
+    consumer:
+      check: false
+    reference:
+      loadbalance: roundrobin #轮询机制

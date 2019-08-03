@@ -33,6 +33,7 @@
     <modules>
         <module>soul-test-dubbo-api</module>
         <module>soul-test-dubbo-service</module>
+        <module>soul-test-dubbo-consumer</module>
     </modules>
 
     <dependencyManagement>
